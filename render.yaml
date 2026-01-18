@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: epiefivem-website
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: starter
+    plan: starter
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: epiefivem-db
+          property: connectionString
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+        optional: true
+      - key: PRICE_ID_1_DAY
+        sync: false
+      - key: PRICE_ID_1_WEEK
+        sync: false
+      - key: PRICE_ID_1_MONTH
+        sync: false
+      - key: PRICE_ID_LIFETIME
+        sync: false
+      - key: NEXT_PUBLIC_BASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+
+databases:
+  - name: epiefivem-db
+    databaseName: epiefivem
+    user: epiefivem
+    plan: starter

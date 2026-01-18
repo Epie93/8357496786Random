@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary-darker text-white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    /* Curseur personnalisé */
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23933aea' opacity='0.8'/%3E%3Ccircle cx='12' cy='12' r='6' fill='%23ec4899' opacity='0.9'/%3E%3Ccircle cx='12' cy='12' r='3' fill='white'/%3E%3C/svg%3E") 12 12, auto;
+  }
+
+  /* Curseur personnalisé pour les éléments cliquables */
+  a, button, [role="button"], input[type="submit"], input[type="button"] {
+    cursor: url("data:image/svg+xml,%3Csvg width='28' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='14' cy='14' r='12' fill='%23933aea' opacity='0.9'/%3E%3Ccircle cx='14' cy='14' r='8' fill='%23ec4899' opacity='1'/%3E%3Ccircle cx='14' cy='14' r='4' fill='white'/%3E%3Cpath d='M14 8 L14 20 M8 14 L20 14' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 14 14, pointer;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-purple hover:bg-purple-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple/50;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-custom hover:bg-gray-light text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
+  }
+
+  .card {
+    @apply bg-gray-custom/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple/20 hover:border-purple/50 transition-all duration-300;
+  }
+
+  .input-field {
+    @apply bg-gray-custom border border-purple/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple focus:ring-2 focus:ring-purple/50 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+/* Snowfall Animation */
+@keyframes snowFall {
+  0% {
+    transform: translateY(-100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(var(--snow-x, 0px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+}
+
+.animate-float {
+  animation: float 20s infinite;
+}
+
+@keyframes scrollBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-scroll-banner {
+  animation: scrollBanner 30s linear infinite;
+  display: flex;
+  width: max-content;
+}
